@@ -7,9 +7,9 @@ var rename = require('gulp-rename');
 var less = require('gulp-less');
 
 var styleSources = [
-	'./less/*.less',
-	'./less/core/*.less',
-	'./less/pages/*.less'
+	'./app/less/*.less',
+	'./app/less/home/*.less',
+	'./app/less/sections/*.less'
 ];
 
 // Compile and minify CSS
@@ -26,4 +26,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['scripts', 'styles', 'watch']);
+gulp.task('default', ['styles', 'watch']);

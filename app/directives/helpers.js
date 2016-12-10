@@ -280,27 +280,4 @@ angular.module('Pelican')
       });
     }
   }
-}])
-
-.directive('mousewheel', ['$timeout', function ($timeout) {
-  return {
-    restrict: 'A',
-    link: function (scope, elem, attr) {
-      $timeout(function () {
-        $(function() {
-
-          var toolbox = $('#side-menu');
-
-          toolbox.bind('mousewheel', function(e, d) {
-            var height = toolbox.height(),
-                scrollHeight = toolbox.get(0).scrollHeight;
-
-            if((this.scrollTop >= (scrollHeight - height - 100) && d < 0) || (this.scrollTop < 1 && d >= 0)) {
-              e.preventDefault();
-            }
-          });
-        });
-      })
-    }
-  }
 }]);
