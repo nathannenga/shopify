@@ -5,21 +5,10 @@ var express     = require('express'),
     mongoose    = require('mongoose'),
     session     = require('express-session'),
     passport    = require('passport'),
-    CronJob     = require('cron').CronJob,
     ejs         = require('ejs'),
     path        = require('path'),
     keys        = require('./config/keys.js').connections,
-    http        = require('http'),
-    EmailCtrl   = require('./controllers/EmailController');
-
-if (keys.env !== "DEVELOPMENT") {
-  var https       = require('https'),
-      fs          = require('fs'),
-      privateKey  = fs.readFileSync('./config/server.enc.key', 'utf8'),
-      certificate = fs.readFileSync('./config/server.crt', 'utf8'),
-      ca          = fs.readFileSync('./config/bundle.crt', 'utf8'),
-      credentials = {key: privateKey, cert: certificate, ca: ca, passphrase: require('./config/keys.js').certKey};
-};
+    http        = require('http');
 
 process.env.NODE_ENV = require('./config/keys.js').env;
 
@@ -27,7 +16,7 @@ process.env.NODE_ENV = require('./config/keys.js').env;
 var app = express();
 app.set('view engine', 'ejs');
 
-require('./config/passport')(passport);
+// require('./config/passport')(passport);
 
 // Middleware
 app.use(session({
@@ -59,7 +48,6 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
   console.log('Mongoose uri:', mongooseUri);
-  EmailCtrl.createNotificationEmail();
 });
 
 
@@ -67,26 +55,7 @@ db.once('open', function (callback) {
 //     console.log('Server listening on port: ' + portNum, 'in ' + keys.env + ' mode.');
 // });
 
-
-
-if (keys.env === 'DEVELOPMENT') {
-
-  var httpServer = http.createServer(app);
-  httpServer.listen(portNum, function () {
-    console.log('HTTP server listening on port: ' + portNum, 'in ' + keys.env + ' mode.');
-  });
-
-} else {
-
-  var http = require('http');
-  http.createServer(function (req, res) {
-    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
-    res.end();
-  }).listen(80);
-
-  var httpsServer = https.createServer(credentials, app);
-  httpsServer.listen(443, function () {
-    console.log('HTTPS server listening on port: 443 in ' + keys.env + ' mode.');
-  });
-
-}
+var httpServer = http.createServer(app);
+httpServer.listen(portNum, function () {
+  console.log('HTTP server listening on port: ' + portNum, 'in ' + keys.env + ' mode.');
+});
