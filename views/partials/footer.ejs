@@ -1,0 +1,31 @@
+  <% if (settings.env === 'DEV') { %>
+    <script type="text/javascript" src="/app.js"></script>
+
+    <script type="text/javascript" src="/controllers/ListsController.js"></script>
+    <script type="text/javascript" src="/controllers/MenuController.js"></script>
+    <script type="text/javascript" src="/controllers/ComposeModalController.js"></script>
+    <script type="text/javascript" src="/controllers/PostModalController.js"></script>
+    <script type="text/javascript" src="/controllers/RenameListController.js"></script>
+    <script type="text/javascript" src="/controllers/ExtensionController.js"></script>
+    <script type="text/javascript" src="/controllers/HeaderController.js"></script>
+    <script type="text/javascript" src="/controllers/DiscoverController.js"></script>
+    <script type="text/javascript" src="/controllers/OnboardController.js"></script>
+
+    <script type="text/javascript" src="/services/apiService.js"></script>
+    <script type="text/javascript" src="/services/searchService.js"></script>
+    <script type="text/javascript" src="/services/validator.js"></script>
+    <script type="text/javascript" src="/services/trackingService.js"></script>
+
+    <script type="text/javascript" src="/directives/helpers.js"></script>
+    <script type="text/javascript" src="/directives/post-helper.js"></script>
+    <script type="text/javascript" src="/directives/keyPress.js"></script>
+    <script type="text/javascript" src="/directives/lazy-load.js"></script>
+    <script type="text/javascript" src="/directives/mobileHelpers.js"></script>
+
+    <script type="text/javascript" src="/filters/menuFilter.js"></script>
+    <script type="text/javascript" src="/filters/simpleFilter.js"></script>
+  <% } else { %>
+    <script type="text/javascript" src="/app.min.js"></script>
+  <% } %>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<section class="modal-container animated-fast fadeIn" ng-show="isEditListModalOpen" ng-controller="RenameListController" ng-cloak>
+  <div class="modal-backdrop" ng-click="closeEditListModal()"></div>
+
+  <div class="modal edit-list-modal list-modal">
+    <div class="top">
+      <h1>How should we rename your list?</h1>
+
+      <div class="modal-icon ion-android-close pointer" ng-click="closeEditListModal()"></div>
+    </div>
+
+    <div class="body">
+      <input type="text" placeholder="Name" id="edit-list-name-input" ng-model="activeList.title" />
+      <button class="cta" ng-click="renameList(activeList)">Rename List</button>
+    </div>
+  </div>
+</section>

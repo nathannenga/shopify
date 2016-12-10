@@ -1,0 +1,35 @@
+<section class="small-menu animated-fast" id="small-menu" resizable>
+  <div class="body">
+    <% if (owner) { %>
+    <div class="user">
+      <% if (owner.image) { %>
+        <img src="<%= owner.image %>" alt="<%= owner.displayName %>" />
+      <% } %>
+      <%= owner.givenName + "'s Pelican" %>
+      <div id="toggle-menu-down" class="toggle ion-ios-arrow-down" toggle-menu-down></div>
+      <div id="toggle-menu-up" class="toggle ion-ios-arrow-up hidden" toggle-menu-up></div>
+    </div>
+    <% } %>
+
+    <div class="list menu-list"
+         ng-click="makeActive(list, true)"
+         id="menu-list-{{list._id}}"
+         identify-location="/list/{{list._id}}"
+         ng-repeat="list in ownerLists"
+         menu-helper ng-cloak>
+      <div class="p-wrapper">
+        <p class="hashtag">#</p>
+        <p class="p-title" ng-bind-html="sanitizeHtml(list.title)"></p>
+        <span class="icon ion-ios-locked-outline" ng-if="list.isPrivate"></span>
+      </div>
+      <hr ng-show="list.displayPosts" identify-location="/list/{{list._id}}"/>
+      <div class="posts" ng-show="list.displayPosts">
+        <div class="post animated-fast fadeInLeft"
+            ng-repeat="post in list.posts" search-post close-side-menu
+            ng-click="openPostMenu(post, $index, $parent.$index)">
+          <p class="post-title" ng-bind-html="sanitizeHtml(post.title)"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
