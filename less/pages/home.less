@@ -64,3 +64,32 @@ section.home {
     }
   }
 }
+
+@media only screen and (max-width: @mobile) {
+  section.home {
+    .hero-content {
+      flex-direction: column;
+
+      img {
+        height: 300px;
+      }
+    }
+
+    .hero {
+      background: none;
+      height: inherit;
+    }
+
+    .sub-hero {
+      padding: 40px 0 60px;
+    }
+
+    button, input {
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 1.65em;
+    }
+  }
+}

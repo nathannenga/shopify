@@ -475,3 +475,25 @@ section.home .inline input {
 section.home .inline input:focus {
   border-right: none;
 }
+@media only screen and (max-width: 600px) {
+  section.home .hero-content {
+    flex-direction: column;
+  }
+  section.home .hero-content img {
+    height: 300px;
+  }
+  section.home .hero {
+    background: none;
+    height: inherit;
+  }
+  section.home .sub-hero {
+    padding: 40px 0 60px;
+  }
+  section.home button,
+  section.home input {
+    padding: 10px;
+  }
+  section.home h1 {
+    font-size: 1.65em;
+  }
+}
