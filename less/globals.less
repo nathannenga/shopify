@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+
+@form-padding: 20px;
+
+button {
+  cursor: pointer;
+  border-style: none;
+  padding: @form-padding @form-padding + 10px;
+  border-radius: @br;
+
+  &:focus {
+    outline: none;
+  }
+  &.ca {
+    color: #fff;
+    background-color: @green;
+    border: 1px solid @green;
+
+    &:hover {
+      background-color: @darker-green;
+      border: 1px solid @darker-green;
+    }
+  }
+}
+
+input {
+  padding: @form-padding;
+  border: 1px solid @border-gray;
+  border-radius: @br;
+
+  &:focus {
+    outline: none;
+    border: 1px solid @blue;
+  }
+}

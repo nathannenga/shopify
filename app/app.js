@@ -1,1 +1,1 @@
-angular.module('Pelican', ['ngSanitize'])
+angular.module('Shopify', [])
