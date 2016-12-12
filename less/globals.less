@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 
 @form-padding: 20px;
 
@@ -10,6 +13,7 @@ button {
   border-style: none;
   padding: @form-padding @form-padding + 10px;
   border-radius: @br;
+  margin-bottom: 10px;
 
   &:focus {
     outline: none;
@@ -30,6 +34,7 @@ input {
   padding: @form-padding;
   border: 1px solid @border-gray;
   border-radius: @br;
+  margin-bottom: 10px;
 
   &:focus {
     outline: none;

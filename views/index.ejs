@@ -10,13 +10,13 @@
     </div>
   </div>
 </header>
-<section class="home">
+<section class="home" ng-controller="HomeController">
   <div class="sub-hero">
     <h1>An ecommerce platform made for you</h1>
     <p class="enlarged-text">Whether you sell online, on social media, in store, or out of the trunk of your car, Shopify has you covered.</p>
 
-    <form class="inline">
-      <input type="text" placeholder="Enter your email address">
+    <form class="inline" ng-submit="emailSignup(email)">
+      <input type="text" placeholder="Enter your email address" ng-model="email">
       <button class="ca">Get started</button>
     </form>
   </div>
@@ -33,11 +33,22 @@
     <p class="enlarged-text">Shopify handles everything from marketing and payments, to secure checkout and shipping -- focus on the things you love!</p>
 
     <form class="inline">
-      <input type="text" placeholder="Enter your email address">
+      <input type="text" placeholder="Enter your email address" ng-model="email">
       <button class="ca">Get started</button>
     </form>
   </div>
 
-
+  <section class="signup-modal" ng-show="signupModalOpened" ng-cloak>
+    <div class="close ion-ios-close-empty" ng-click="signupModalOpened = false"></div>
+    <div class="container">
+      <h1>Start making your app</h1>
+      <form class="">
+        <input type="text" placeholder="Email" ng-model="user.email" id="userEmail">
+        <input type="password" placeholder="Password" ng-model="user.password" id="userPassword">
+        <input type="text" placeholder="Store Name" ng-model="user.storeName" id="userStoreName">
+        <button class="ca">Create your app</button>
+      </form>
+    </div>
+  </section>
 </section>
 <% include ./partials/footer.ejs %>
