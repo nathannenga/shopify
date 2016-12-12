@@ -32,13 +32,13 @@
     <h1>Get straight to growing your business</h1>
     <p class="enlarged-text">Shopify handles everything from marketing and payments, to secure checkout and shipping -- focus on the things you love!</p>
 
-    <form class="inline">
+    <form class="inline" ng-submit="emailSignup(email)">
       <input type="text" placeholder="Enter your email address" ng-model="email">
       <button class="ca">Get started</button>
     </form>
   </div>
 
-  <section class="signup-modal" ng-show="signupModalOpened" ng-cloak>
+  <section class="signup-modal animated-fast slideInUp" ng-show="signupModalOpened" ng-cloak>
     <div class="close ion-ios-close-empty" ng-click="signupModalOpened = false"></div>
     <div class="container">
       <h1>Start making your app</h1>
