@@ -10,12 +10,16 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
+  background-color: #eeeeee;
 }
 /**
  * Remove the margin in all browsers (opinionated).
  */
 body {
   margin: 0;
+  background-color: #fff;
+  max-width: 1440px;
+  margin: auto;
 }
 /* HTML5 display definitions
    ========================================================================== */
@@ -407,10 +411,23 @@ input:focus {
   outline: none;
   border: 1px solid #767676;
 }
+header {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+header .header-wrapper {
+  max-width: 1200px;
+  padding: 20px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
 section.home .sub-hero {
   text-align: center;
   max-width: 600px;
-  margin: 80px auto;
+  padding: 60px 0 80px;
+  margin: auto;
 }
 section.home .sub-hero p {
   margin: 20px;
@@ -419,8 +436,7 @@ section.home .hero {
   background: url(shop.jpg) 50% 50% no-repeat scroll;
   background-size: cover;
   width: 100%;
-  min-height: 600px;
-  height: 100vh;
+  height: 600px;
   text-align: center;
 }
 section.home .hero-content {
