@@ -396,7 +396,7 @@ p {
 button {
   cursor: pointer;
   border-style: none;
-  padding: 20px 30px;
+  padding: 15px 25px;
   border-radius: 3px;
   margin-bottom: 10px;
 }
@@ -413,7 +413,7 @@ button.ca:hover {
   border: 1px solid #6aa74c;
 }
 input {
-  padding: 20px;
+  padding: 15px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 10px;
@@ -421,6 +421,16 @@ input {
 input:focus {
   outline: none;
   border: 1px solid #767676;
+}
+label span {
+  text-transform: uppercase;
+  font-size: 13px;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+label input {
+  margin-bottom: 30px;
 }
 /*!
  * animate.css -http://daneden.me/animate
@@ -827,4 +837,30 @@ section.home .inline input:focus {
   section.home h1 {
     font-size: 1.65em;
   }
+}
+section.get-started {
+  background-color: #ebeef0;
+  width: 100%;
+  min-height: 100vh;
+}
+section.get-started .container {
+  background-color: #fff;
+  border-radius: 3px;
+  width: 800px;
+  margin: 40px auto;
+  padding: 20px 40px;
+}
+section.get-started .container h2 {
+  text-align: center;
+  margin: 20px 0 40px;
+}
+section.get-started input {
+  width: 100%;
+}
+section.get-started .two-col {
+  display: flex;
+  justify-content: space-between;
+}
+section.get-started .two-col label {
+  width: 48%;
 }

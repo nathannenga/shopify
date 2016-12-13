@@ -6,7 +6,7 @@
   display: none !important;
 }
 
-@form-padding: 20px;
+@form-padding: 15px;
 
 button {
   cursor: pointer;
@@ -39,5 +39,19 @@ input {
   &:focus {
     outline: none;
     border: 1px solid @darker-gray;
+  }
+}
+
+label {
+  span {
+    text-transform: uppercase;
+    font-size: 13px;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  input {
+    margin-bottom: 30px;
   }
 }
