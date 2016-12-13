@@ -14,3 +14,7 @@ Routes.home = function (req, res) {
 Routes.getStarted = function (req, res) {
   return res.render('get-started');
 };
+
+Routes.admin = function (req, res) {
+  return res.render('admin');
+};

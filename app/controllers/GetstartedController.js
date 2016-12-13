@@ -19,7 +19,8 @@ angular.module('Shopify')
   $scope.saveData = function (user) {
     apiService.saveUserInfo(user)
     .then(function (response) {
-      console.warn(response);
+      // console.warn(response);
+      window.location = '/admin';
     })
     .catch(function (err) {
       console.error(err);
