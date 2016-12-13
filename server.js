@@ -5,6 +5,7 @@ var express     = require('express'),
     mongoose    = require('mongoose'),
     session     = require('express-session'),
     passport    = require('passport'),
+    flash       = require('connect-flash'),
     ejs         = require('ejs'),
     path        = require('path'),
     keys        = require('./config/keys.js').connections,
@@ -16,7 +17,7 @@ process.env.NODE_ENV = require('./config/keys.js').env;
 var app = express();
 app.set('view engine', 'ejs');
 
-// require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 // Middleware
 app.use(session({
@@ -28,6 +29,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 app.use(cors());
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));

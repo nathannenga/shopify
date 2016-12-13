@@ -2,7 +2,7 @@ var Routes      = module.exports = {};
     // UserCtrl    = require('./UserController');
 
 Routes.index = function (req, res) {
-  if (req.user && req.user._id) return res.redirect('/user/' + req.user._id);
+  if (req.user && req.user._id) return res.redirect('/dashboard');
   return res.render('index'); //res.redirect('/home');
 };
 

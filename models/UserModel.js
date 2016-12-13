@@ -1,18 +1,24 @@
 var mongoose = require('mongoose'),
+    bcrypt   = require('bcrypt-nodejs'),
     shortid  = require('shortid');
 
 var UserSchema = new mongoose.Schema({
   _id           : { type: String, 'default': shortid.generate },
-  facebookId    : String,
-  facebookToken : String,
-  givenName     : String,
-  displayName   : String,
   email         : String,
+  password      : String,
   created_date  : { type: Date, default: Date.now },
-  lists         : [{ type: String, ref: 'List' }],
-  image         : String
+  storeName     : String
 });
 
+// methods ======================
+// generating a hash
+UserSchema.methods.generateHash = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
 
-UserSchema.index({ displayName: "text", email: "text"});
+// checking if password is valid
+UserSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.password);
+};
+
 module.exports = mongoose.model('User', UserSchema);

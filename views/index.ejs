@@ -42,10 +42,10 @@
     <div class="close ion-ios-close-empty" ng-click="signupModalOpened = false"></div>
     <div class="container">
       <h1>Start making your app</h1>
-      <form class="">
-        <input type="text" placeholder="Email" ng-model="user.email" id="userEmail">
-        <input type="password" placeholder="Password" ng-model="user.password" id="userPassword">
-        <input type="text" placeholder="Store Name" ng-model="user.storeName" id="userStoreName">
+      <form action="/signup" method="post">
+        <input type="text" placeholder="Email" name="email" ng-model="user.email" id="userEmail">
+        <input type="password" placeholder="Password" name="password" ng-model="user.password" id="userPassword">
+        <input type="text" placeholder="Store Name" name="storeName" ng-model="user.storeName" id="userStoreName">
         <button class="ca">Create your app</button>
       </form>
     </div>
