@@ -6,6 +6,18 @@ var UserSchema = new mongoose.Schema({
   _id           : { type: String, 'default': shortid.generate },
   email         : String,
   password      : String,
+  firstName     : String,
+  lastName      : String,
+  address       : {
+    streetAddress : String,
+    number        : String,
+    city          : String,
+    zip           : Number,
+    country       : String,
+    state         : String
+  },
+  phoneNumber   : Number,
+  websiteUrl    : String,
   created_date  : { type: Date, default: Date.now },
   storeName     : String
 });
