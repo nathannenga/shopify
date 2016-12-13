@@ -1,6 +1,5 @@
-// var List          = require('./ListController'),
-//     Emails        = require('./EmailController');
+var User          = require('./UserController');
 
 module.exports = function (app) {
-  // app.post('/api/list', List.create);
+  app.put('/api/user-info', User.saveExtended);
 };

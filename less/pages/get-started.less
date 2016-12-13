@@ -8,7 +8,6 @@ section.get-started {
     border-radius: @br;
     width: 800px;
     margin: 40px auto;
-    padding: 20px 40px;
 
     h2 {
       text-align: center;
@@ -26,6 +25,22 @@ section.get-started {
 
     label {
       width: 48%;
+    }
+  }
+
+  @local-padding: 30px 50px;
+  .content {
+    padding: @local-padding;
+  }
+
+  .footer {
+    border-top: 1px solid @border-gray;
+    display: flex;
+    justify-content: flex-end;
+    padding: @local-padding;
+
+    button {
+      margin: 0;
     }
   }
 }

@@ -1,64 +1,70 @@
 <% include ./partials/head.ejs %>
-<section class="get-started">
+<section class="get-started" ng-controller="GetstartedController">
   <div class="container">
-    <h2>Add some information so you can get paid</h2>
+    <div class="content">
+      <h2>Add some information so you can get paid</h2>
 
-    <div class="two-col">
+      <div class="two-col">
+        <label>
+          <span>First name</span>
+          <input type="text" ng-model="user.firstName">
+        </label>
+
+        <label>
+          <span>Last name</span>
+          <input type="text" ng-model="user.lastName">
+        </label>
+      </div>
+
       <label>
-        <span>First name</span>
-        <input type="text" ng-model="user.firstName">
+        <span>Street address</span>
+        <input type="text" ng-model="user.address.streetAddress">
       </label>
 
       <label>
-        <span>Last name</span>
-        <input type="text" ng-model="user.lastName">
+        <span>Apt, suite, etc. (optional)</span>
+        <input type="text" ng-model="user.address.number">
       </label>
+
+      <div class="two-col">
+        <label>
+          <span>City</span>
+          <input type="text" ng-model="user.address.city">
+        </label>
+
+        <label>
+          <span>Zip/Postal code</span>
+          <input type="number" ng-model="user.address.zip">
+        </label>
+      </div>
+
+      <div class="two-col">
+        <label>
+          <span>Country</span>
+          <input type="text" ng-model="user.address.country">
+        </label>
+
+        <label>
+          <span>State</span>
+          <input type="text" ng-model="user.address.state">
+        </label>
+      </div>
+
+      <div class="two-col">
+        <label>
+          <span>Phone number</span>
+          <input type="number" ng-model="user.phoneNumber">
+        </label>
+
+        <label>
+          <span>Business or personal website (optional)</span>
+          <input type="text" ng-model="user.websiteUrl">
+        </label>
+      </div>
     </div>
 
-    <label>
-      <span>Street address</span>
-      <input type="text" ng-model="user.address.streetAddress">
-    </label>
-
-    <label>
-      <span>Apt, suite, etc. (optional)</span>
-      <input type="text" ng-model="user.address.number">
-    </label>
-
-    <div class="two-col">
-      <label>
-        <span>City</span>
-        <input type="text" ng-model="user.address.city">
-      </label>
-
-      <label>
-        <span>Zip/Postal code</span>
-        <input type="text" ng-model="user.address.zip">
-      </label>
-    </div>
-
-    <div class="two-col">
-      <label>
-        <span>Country</span>
-        <input type="text" ng-model="user.address.country">
-      </label>
-
-      <label>
-        <span>State</span>
-        <input type="text" ng-model="user.address.state">
-      </label>
-    </div>
-
-    <div class="two-col">
-      <label>
-        <span>Phone number</span>
-        <input type="text" ng-model="user.address.country">
-      </label>
-
-      <label>
-        <span>Business or personal website (optional)</span>
-        <input type="text" ng-model="user.address.state">
-      </label>
+    <div class="footer">
+      <button class="ca" ng-click="saveData(user)">Enter my store</button>
     </div>
   </div>
 </section>

@@ -848,7 +848,6 @@ section.get-started .container {
   border-radius: 3px;
   width: 800px;
   margin: 40px auto;
-  padding: 20px 40px;
 }
 section.get-started .container h2 {
   text-align: center;
@@ -863,4 +862,16 @@ section.get-started .two-col {
 }
 section.get-started .two-col label {
   width: 48%;
+}
+section.get-started .content {
+  padding: 30px 50px;
+}
+section.get-started .footer {
+  border-top: 1px solid #dddddd;
+  display: flex;
+  justify-content: flex-end;
+  padding: 30px 50px;
+}
+section.get-started .footer button {
+  margin: 0;
 }
