@@ -4,7 +4,7 @@ angular.module('Shopify')
 
   $timeout(function () {
     $scope.activeTab = $state.current.name;
-  });
+  }, 50);
 
   $scope.activateTab = function (tab) {
     $scope.activeTab = tab;

@@ -809,6 +809,7 @@ section.menu .pill:hover .icon {
 section.admin-container {
   margin-left: 240px;
   overflow: auto;
+  min-height: 100vh;
 }
 section.home .sub-hero {
   text-align: center;

@@ -5,12 +5,10 @@ angular.module('Shopify', ['ui.router'])
     $stateProvider
       .state('products', {
         url: '/products',
-        template: '<h1>PRODUCTS!!!</h1>'
-        // templateUrl: 'products.html'
+        templateUrl: '/templates/products.html'
       })
       .state('orders', {
         url: '/orders',
-        template: '<h1>ORDERS!!!</h1>'
-        // templateUrl: 'orders.html'
+        templateUrl: '/templates/orders.html'
       })
 });
