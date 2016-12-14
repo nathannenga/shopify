@@ -1,0 +1,15 @@
+<section class="menu" ng-controller="MenuController">
+  <div class="title">
+    <h3>Shopify</h3>
+  </div>
+
+  <div class="pill" ui-sref="products"
+      ng-click="activateTab('activeProducts')" ng-class="{'active': activeTab == 'activeProducts'}">
+    <span class="icon ion-ios-pricetags"></span><span>Products</span>
+  </div>
+
+  <div class="pill" ui-sref="orders"
+      ng-click="activateTab('orders')" ng-class="{'active': activeTab == 'orders'}">
+    <span class="icon ion-card"></span><span>Orders</span>
+  </div>
+</section>

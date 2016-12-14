@@ -1,0 +1,51 @@
+section.menu {
+  @local-padding: 15px 20px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: @dim-blue;
+
+  .title {
+    color: #fff;
+    padding: @local-padding;
+    border-bottom: 1px solid lighten(@dim-blue, 5%);
+
+    h3 {
+      margin: 10px 0;
+    }
+  }
+
+  .pill {
+    width: 100%;
+    padding: @local-padding;
+    color: lighten(@dim-blue, 50%);
+    font-weight: 300;
+    cursor: pointer;
+    font-family: @font;
+    font-size: 14px;
+
+    .icon {
+      color: lighten(@dim-blue, 30%);
+      margin-right: 10px;
+    }
+
+    &.active {
+      color: #fff;
+      background-color: lighten(@dim-blue, 10%);
+
+      .icon {
+        color: #fff;
+      }
+    }
+
+    &:hover {
+      color: #fff;
+      .icon {
+        color: #fff;
+      }
+    }
+  }
+}
