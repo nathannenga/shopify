@@ -377,6 +377,9 @@ h1 {
   font-size: 2em;
   margin-bottom: 20px;
 }
+h2 {
+  font-weight: 300;
+}
 p {
   color: #767676;
   font-weight: 300;
@@ -842,8 +845,23 @@ section.menu .pill:hover .icon {
 }
 section.admin-container {
   overflow: auto;
-  min-height: 100vh;
   margin: 20px;
+}
+section.products {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+section.products h1 {
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+section.products .wrapper {
+  text-align: center;
+}
+section.products .img-placeholder {
+  max-width: 300px;
 }
 section.home .sub-hero {
   text-align: center;
