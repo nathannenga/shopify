@@ -1,3 +1,14 @@
-<header>
+<header class="admin" ng-controller="HeaderController">
+  <div class="header-wrapper" ng-cloak>
+    <div class="left sub-header" ng-if="activeTab == 'products'">
+      <span class="icon ion-ios-pricetags"></span><span>Products</span>
+    </div>
+    <div class="left sub-header" ng-if="activeTab == 'orders'">
+      <span class="icon ion-card"></span><span>Orders</span>
+    </div>
 
+    <div class="right">
+      <button class="ca-two" ng-if="headerCa">{{headerCa}}</button>
+    </div>
+  </div>
 </header>
