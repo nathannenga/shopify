@@ -863,6 +863,11 @@ section.products .wrapper {
 section.products .img-placeholder {
   max-width: 300px;
 }
+section.products .empty-state button {
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+}
 section.home .sub-hero {
   text-align: center;
   max-width: 600px;
