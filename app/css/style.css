@@ -743,6 +743,13 @@ header.admin .icon {
   color: #798c9c;
   margin-right: 10px;
 }
+header.admin .link {
+  color: #798c9c;
+  cursor: pointer;
+}
+header.admin .link:hover {
+  text-decoration: underline;
+}
 header button {
   padding: 7px 14px;
   margin: 0;
@@ -845,25 +852,25 @@ section.menu .pill:hover .icon {
 }
 section.admin-container {
   overflow: auto;
-  margin: 20px;
 }
-section.products {
+section.admin-content {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 600px;
 }
-section.products h1 {
+section.admin-content h1 {
   font-weight: 300;
   margin-bottom: 50px;
 }
-section.products .wrapper {
+section.admin-content .wrapper {
   text-align: center;
 }
-section.products .img-placeholder {
+section.admin-content .img-placeholder {
   max-width: 300px;
+  min-height: 156.5px;
 }
-section.products .empty-state button {
+section.admin-content .empty-state button {
   display: block;
   margin: auto;
   margin-top: 50px;
