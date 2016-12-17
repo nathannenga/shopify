@@ -1,28 +1,62 @@
 section.admin-content {
+  max-width: 1000px;
+  margin: 40px auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 600px;
+  justify-content: space-between;
 
-  h1 {
+  label span {
     font-weight: 300;
-    margin-bottom: 50px;
+    text-transform: none;
+    font-size: 14px;
   }
 
-  .wrapper {
-    text-align: center;
-  }
+  input {
+    height: 36px;
+    padding: 5px 10px;
+    width: 100%;
+    font-weight: 300;
 
-  .img-placeholder {
-    max-width: 300px;
-    min-height: 156.5px;
-  }
-
-  .empty-state {
-    button {
-      display: block;
-      margin: auto;
-      margin-top: 50px;
+    &:focus {
+      border: 1px solid @blue;
     }
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: @darker-gray;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: @darker-gray;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: @darker-gray;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: @darker-gray;
+    }
+  }
+
+  h4 {
+    font-weight: 500;
+    margin-top: 0;
+  }
+
+  .left { width: 65%; }
+  .right { width: 33%; }
+
+  @local-spacing: 20px;
+  @local-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  .card {
+    box-shadow: @local-shadow;
+    border-radius: @br;
+    padding: @local-spacing;
+  }
+
+  .section {
+    .card;
+    background-color: #fff;
+  }
+
+  .small-section {
+    .card;
+    background-color: @light-gray;
   }
 }

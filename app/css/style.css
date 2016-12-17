@@ -400,35 +400,6 @@ p {
 .x-ng-cloak {
   display: none !important;
 }
-button {
-  cursor: pointer;
-  border-style: none;
-  padding: 15px 25px;
-  border-radius: 3px;
-  margin-bottom: 10px;
-  font-weight: 300;
-}
-button:focus {
-  outline: none;
-}
-button.ca {
-  color: #fff;
-  background-color: #7ab55c;
-  border: 1px solid #7ab55c;
-}
-button.ca:hover {
-  background-color: #6aa74c;
-  border: 1px solid #6aa74c;
-}
-button.ca-two {
-  color: #fff;
-  background-color: #0078bd;
-  border: 1px solid #0078bd;
-}
-button.ca-two:hover {
-  background-color: #0069a6;
-  border: 1px solid #0069a6;
-}
 input {
   padding: 15px;
   border: 1px solid #dddddd;
@@ -721,6 +692,48 @@ label input {
   -moz-animation: spin 0.5s linear infinite;
   animation: spin 0.5s linear infinite;
 }
+button {
+  cursor: pointer;
+  border-style: none;
+  padding: 15px 25px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+button:focus {
+  outline: none;
+}
+button.ca {
+  color: #fff;
+  background-color: #7ab55c;
+  border: 1px solid #7ab55c;
+}
+button.ca:hover {
+  background-color: #6aa74c;
+  border: 1px solid #6aa74c;
+}
+button.ca-two {
+  color: #fff;
+  background-color: #0078bd;
+  border: 1px solid #0078bd;
+}
+button.ca-two:hover {
+  background-color: #0069a6;
+  border: 1px solid #0069a6;
+}
+button.ca-subtle {
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  color: #0078bd;
+}
+button.ca-subtle:hover {
+  background-color: #fafafa;
+}
+button.ca-subtle:disabled {
+  background-color: #fafafa;
+  color: #cccccc;
+  cursor: auto;
+}
 header {
   width: 100%;
   background-color: #fff;
@@ -853,27 +866,90 @@ section.menu .pill:hover .icon {
 section.admin-container {
   overflow: auto;
 }
-section.admin-content {
+section.admin-empty-state {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 600px;
 }
-section.admin-content h1 {
+section.admin-empty-state h1 {
   font-weight: 300;
   margin-bottom: 50px;
 }
-section.admin-content .wrapper {
+section.admin-empty-state .wrapper {
   text-align: center;
 }
-section.admin-content .img-placeholder {
+section.admin-empty-state .img-placeholder {
   max-width: 300px;
   min-height: 156.5px;
 }
-section.admin-content .empty-state button {
+section.admin-empty-state button {
   display: block;
   margin: auto;
   margin-top: 50px;
+}
+section.admin-content {
+  max-width: 1000px;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+}
+section.admin-content label span {
+  font-weight: 300;
+  text-transform: none;
+  font-size: 14px;
+}
+section.admin-content input {
+  height: 36px;
+  padding: 5px 10px;
+  width: 100%;
+  font-weight: 300;
+}
+section.admin-content input:focus {
+  border: 1px solid #0078bd;
+}
+section.admin-content input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #767676;
+}
+section.admin-content input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #767676;
+}
+section.admin-content input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #767676;
+}
+section.admin-content input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #767676;
+}
+section.admin-content h4 {
+  font-weight: 500;
+  margin-top: 0;
+}
+section.admin-content .left {
+  width: 65%;
+}
+section.admin-content .right {
+  width: 33%;
+}
+section.admin-content .card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 20px;
+}
+section.admin-content .section {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 20px;
+  background-color: #fff;
+}
+section.admin-content .small-section {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  padding: 20px;
+  background-color: #f5f6f7;
 }
 section.home .sub-hero {
   text-align: center;

@@ -1,17 +1,36 @@
 <header class="admin">
   <div class="header-wrapper" ng-cloak>
     <div class="left sub-header">
-      <span class="icon ion-ios-pricetags"></span><span ui-sref="products" class="link">Products</span><span> / Add Product</span>
+      <span class="icon ion-ios-pricetags"></span><span ui-sref="products" class="link">Products</span><span> / Add product</span>
     </div>
 
     <div class="right">
-      <button class="ca-two">Cancel</button>
-      <button class="ca-two">Save</button>
+      <button class="ca-subtle" ui-sref="products">Cancel</button>
+      <button class="ca-subtle" disabled>Save</button>
     </div>
   </div>
 </header>
 
 
 <section class="admin-content">
-  <h2>hi there!</h2>
+  <div class="left">
+    <div class="section">
+      <label>
+        <span>Title</span>
+        <input type="text" placeholder="Short Sleeve T-Shirt">
+      </label>
+
+      <label>
+        <span>Description</span>
+        <input type="text" placeholder="Short Sleeve T-Shirt">
+      </label>
+
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="small-section">
+      <h4>Visibility</h4>
+    </div>
+  </div>
 </section>

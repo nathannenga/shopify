@@ -4,12 +4,14 @@
   </div>
 
   <div class="pill" ui-sref="products"
-      ng-click="activateTab('products')" ng-class="{'active': activeTab == 'products'}">
+      ng-click="activateTab('products')"
+      ng-class="{'active': activeTab == 'products' || activeTab == 'new-products'}">
     <span class="icon ion-ios-pricetags"></span><span>Products</span>
   </div>
 
   <div class="pill" ui-sref="orders"
-      ng-click="activateTab('orders')" ng-class="{'active': activeTab == 'orders'}">
+      ng-click="activateTab('orders')"
+      ng-class="{'active': activeTab == 'orders'}">
     <span class="icon ion-card"></span><span>Orders</span>
   </div>
 </section>
