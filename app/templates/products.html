@@ -1,0 +1,43 @@
+<header class="admin">
+  <div class="header-wrapper">
+    <div class="left sub-header">
+      <span class="icon ion-ios-pricetags"></span><span>Products</span>
+    </div>
+    <div class="right">
+      <button class="ca-two small" ui-sref="new-products">Add product</button>
+    </div>
+  </div>
+</header>
+
+
+<section class="admin-content table">
+  <div class="content">
+    <div class="box">
+      <table style="width:100%">
+        <thead>
+          <tr>
+            <th class="img-placeholder-title"></th>
+            <th>Product</th>
+            <th>Inventory</th>
+            <th>Type</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="product in products">
+            <th ng-if="product.img"><img ng-src="{{product.img}}" alt="{{product.title}}" /></th>
+            <th ng-if="!product.img">
+              <div class="img-placeholder">
+                <span class="icon ion-images"></span>
+              </div>
+            </th>
+            <th><p><a ui-sref="edit-product({productId: product._id})">{{product.title}}</a></p></th>
+            <th><p></p></th>
+            <th><p></p></th>
+            <th><p>${{product.price}}<span ng-if="!product.price"> --</span></p></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

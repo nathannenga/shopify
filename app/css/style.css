@@ -370,7 +370,8 @@ h3,
 p,
 blockquote,
 input,
-button {
+button,
+th {
   font-family: 'Muli', sans-serif;
 }
 h1 {
@@ -383,6 +384,10 @@ h2 {
 p {
   color: #767676;
   font-weight: 300;
+}
+th {
+  font-weight: 500;
+  text-align: left;
 }
 .sub-header {
   font-size: 20px;
@@ -400,13 +405,15 @@ p {
 .x-ng-cloak {
   display: none !important;
 }
-input {
+input,
+textarea {
   padding: 15px;
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 10px;
 }
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
   border: 1px solid #767676;
 }
@@ -419,6 +426,15 @@ label span {
 }
 label input {
   margin-bottom: 30px;
+}
+a {
+  color: #0078bd;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+a:hover {
+  text-decoration: underline;
 }
 .admin-wrapper {
   margin-left: 240px;
@@ -734,6 +750,10 @@ button.ca-subtle:disabled {
   color: #cccccc;
   cursor: auto;
 }
+button.small {
+  padding: 7px 14px;
+  margin: 0;
+}
 header {
   width: 100%;
   background-color: #fff;
@@ -762,10 +782,6 @@ header.admin .link {
 }
 header.admin .link:hover {
   text-decoration: underline;
-}
-header button {
-  padding: 7px 14px;
-  margin: 0;
 }
 section.signup-modal {
   width: 100%;
@@ -824,20 +840,20 @@ section.menu {
   top: 0;
   width: 240px;
   height: 100vh;
-  background-color: #4e5665;
+  background-color: #31373d;
 }
 section.menu .title {
   color: #fff;
-  padding: 15px 20px;
-  border-bottom: 1px solid #596273;
+  padding: 10px 20px;
+  border-bottom: 1px solid #3c444b;
 }
 section.menu .title h3 {
   margin: 10px 0;
 }
 section.menu .pill {
   width: 100%;
-  padding: 15px 20px;
-  color: #d4d8de;
+  padding: 10px 20px;
+  color: #afb7be;
   font-weight: 300;
   cursor: pointer;
   font-family: 'Muli', sans-serif;
@@ -846,13 +862,13 @@ section.menu .pill {
   line-height: 20px;
 }
 section.menu .pill .icon {
-  color: #9ba3b1;
+  color: #768491;
   margin-right: 10px;
   font-size: 20px;
 }
 section.menu .pill.active {
   color: #fff;
-  background-color: #646f82;
+  background-color: #485159;
 }
 section.menu .pill.active .icon {
   color: #fff;
@@ -891,6 +907,8 @@ section.admin-empty-state button {
 section.admin-content {
   max-width: 1000px;
   margin: 40px auto;
+}
+section.admin-content .content {
   display: flex;
   justify-content: space-between;
 }
@@ -899,30 +917,44 @@ section.admin-content label span {
   text-transform: none;
   font-size: 14px;
 }
-section.admin-content input {
-  height: 36px;
-  padding: 5px 10px;
+section.admin-content input,
+section.admin-content textarea {
   width: 100%;
   font-weight: 300;
 }
-section.admin-content input:focus {
+section.admin-content input:focus,
+section.admin-content textarea:focus {
   border: 1px solid #0078bd;
 }
-section.admin-content input::-webkit-input-placeholder {
+section.admin-content input::-webkit-input-placeholder,
+section.admin-content textarea::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #767676;
 }
-section.admin-content input::-moz-placeholder {
+section.admin-content input::-moz-placeholder,
+section.admin-content textarea::-moz-placeholder {
   /* Firefox 19+ */
   color: #767676;
 }
-section.admin-content input:-ms-input-placeholder {
+section.admin-content input:-ms-input-placeholder,
+section.admin-content textarea:-ms-input-placeholder {
   /* IE 10+ */
   color: #767676;
 }
-section.admin-content input:-moz-placeholder {
+section.admin-content input:-moz-placeholder,
+section.admin-content textarea:-moz-placeholder {
   /* Firefox 18- */
   color: #767676;
+}
+section.admin-content input {
+  padding: 5px 10px;
+  height: 36px;
+}
+section.admin-content textarea {
+  padding: 10px;
+  min-height: 180px;
+  resize: none;
+  margin-bottom: 0;
 }
 section.admin-content h4 {
   font-weight: 500;
@@ -940,16 +972,77 @@ section.admin-content .card {
   padding: 20px;
 }
 section.admin-content .section {
+  margin-bottom: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   padding: 20px;
   background-color: #fff;
+}
+section.admin-content .title-link {
+  display: flex;
+  justify-content: space-between;
+}
+section.admin-content .title-link a {
+  font-weight: 300;
 }
 section.admin-content .small-section {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   padding: 20px;
   background-color: #f5f6f7;
+}
+section.admin-content .both {
+  display: flex;
+  justify-content: space-between;
+}
+section.admin-content .both label {
+  width: 48.5%;
+}
+section.admin-content .last input {
+  margin-bottom: 5px;
+}
+section.admin-content .with-icon {
+  position: relative;
+}
+section.admin-content .with-icon .icon {
+  color: #798c9c;
+  font-size: 16px;
+  position: absolute;
+  left: 11px;
+  top: 10px;
+}
+section.admin-content .with-icon input {
+  padding-left: 25px;
+}
+section.admin-content .bottom {
+  border-top: 1px solid #dddddd;
+  margin-top: 20px;
+  padding-top: 30px;
+}
+section.table .box {
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 3px;
+}
+section.table thead th {
+  padding-bottom: 20px;
+}
+section.table .img-placeholder-title {
+  width: 80px;
+}
+section.table .img-placeholder {
+  height: 50px;
+  width: 60px;
+  color: #c2cbd2;
+  background-color: #f5f6f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section.table .img-placeholder .icon {
+  font-size: 26px;
 }
 section.home .sub-hero {
   text-align: center;

@@ -20,7 +20,7 @@ angular.module('Shopify')
     apiService.saveUserInfo(user)
     .then(function (response) {
       // console.warn(response);
-      window.location = '/admin';
+      window.location = '/admin#/products';
     })
     .catch(function (err) {
       console.error(err);

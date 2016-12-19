@@ -1,0 +1,94 @@
+<header class="admin">
+  <div class="header-wrapper" ng-cloak>
+    <div class="left sub-header">
+      <span class="icon ion-ios-pricetags"></span>
+      <span ui-sref="products" class="link">Products</span>
+      <span ng-if="!pageTitle"> / Add product</span>
+      <span ng-if="pageTitle"> / {{pageTitle}}</span>
+    </div>
+
+    <div class="right">
+      <button class="ca-subtle small" ui-sref="products">Cancel</button>
+      <button class="ca-two small" ng-click="saveProduct(product)">Save</button>
+    </div>
+  </div>
+</header>
+
+
+<section class="admin-content">
+  <div class="content">
+    <div class="left">
+      <div class="section">
+        <label>
+          <span>Title</span>
+          <input type="text" placeholder="Short Sleeve T-Shirt" ng-model="product.title">
+        </label>
+
+        <label>
+          <span>Description</span>
+          <textarea ng-model="product.description"></textarea>
+        </label>
+      </div>
+
+      <div class="section">
+        <div class="title-link">
+          <h4>Images</h4>
+          <a>Add image</a>
+        </div>
+        <div class="">
+          <input type="file" images="images" accept="image/*" fileread>
+          <button class="ca-subtle small">Add an image</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h4>Pricing</h4>
+        <div class="both">
+          <label>
+            <span>Price</span>
+            <div class="with-icon">
+              <span class="icon">$</span>
+              <input type="number" placeholder="0.00" ng-model="product.price">
+            </div>
+          </label>
+
+          <label class="last">
+            <span>Compare at price</span>
+            <div class="with-icon">
+              <span class="icon">$</span>
+              <input type="number" ng-model="product.originalPrice">
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="section">
+        <h4>Inventory</h4>
+        <div class="both">
+          <label>
+            <span>SKU (Stock Keeping Unit)</span>
+            <input type="text" ng-model="product.sku">
+          </label>
+
+          <label class="last">
+            <span>Barcode (ISBN, UPC, GTIN, etc.)</span>
+            <input type="text" ng-model="product.barcode">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="small-section">
+        <h4>Visibility</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div>
+      <button class="ca-two small" ng-click="saveProduct(product)">Save product</button>
+      <button class="ca-subtle small" ui-sref="products">Cancel</button>
+    </div>
+  </div>
+</section>

@@ -6,7 +6,7 @@
   display: none !important;
 }
 
-input {
+input, textarea {
   padding: @form-padding;
   border: 1px solid @border-gray;
   border-radius: @br;
@@ -29,6 +29,17 @@ label {
 
   input {
     margin-bottom: 30px;
+  }
+}
+
+a {
+  color: @blue;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  
+  &:hover {
+    text-decoration: underline;
   }
 }
 

@@ -1,0 +1,34 @@
+section.table {
+  .box {
+    background-color: #fff;
+    width: 100%;
+    box-shadow: @shadow;
+    padding: 20px;
+    border-radius: @br;
+  }
+
+  thead {
+    th {
+      padding-bottom: 20px;
+    }
+  }
+
+  @img-dimensions: 60px;
+  .img-placeholder-title {
+    width: @img-dimensions + 20px;
+  }
+
+  .img-placeholder {
+    height: @img-dimensions/3*2.5;
+    width: @img-dimensions;
+    color: lighten(@pale-blue, 25%);
+    background-color: @light-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+      font-size: 26px;
+    }
+  }
+}
