@@ -5,26 +5,12 @@
   border-radius: @br;
   margin-bottom: 10px;
   font-weight: 300;
-
-  &:focus {
-    outline: none;
-  }
 }
 
 .button-ca-subtle {
   background-color: #fff;
   border: 1px solid @border-gray;
   color: @blue;
-
-  &:hover {
-    background-color: darken(#fff, 2%);
-  }
-
-  &:disabled {
-    background-color: darken(#fff, 2%);
-    color: darken(#fff, 20%);
-    cursor: auto;
-  }
 }
 
 .button-small-basics {
@@ -34,6 +20,10 @@
 
 button {
   .button-basics;
+
+  &:focus {
+    outline: none;
+  }
 
   &.ca {
     color: #fff;
@@ -59,6 +49,16 @@ button {
 
   &.ca-subtle {
     .button-ca-subtle;
+
+    &:hover {
+      background-color: darken(#fff, 2%);
+    }
+
+    &:disabled {
+      background-color: darken(#fff, 2%);
+      color: darken(#fff, 20%);
+      cursor: auto;
+    }
   }
 
   &.small {

@@ -28,9 +28,21 @@ function ($scope, apiService, editableProduct, $rootScope) {
     })
   };
 
+  $scope.openImage = function (image) {
+    $rootScope.$emit('focus image', image);
+  };
+
   $rootScope.$on('image added', function (e, image) {
     addToImageArray(image);
-  })
+  });
+
+  $rootScope.$on('remove image', function (e, imageId) {
+    $scope.product.images = $scope.product.images.filter(function (image) {
+      if (image._id === imageId) return false;
+      return true;
+    })
+    alertify.log('Please click the save button to update changes');
+  });
 
   function addToImageArray (image) {
     if (!$scope.product) $scope.product = {};

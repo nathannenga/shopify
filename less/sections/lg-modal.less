@@ -1,0 +1,37 @@
+.lg-modal {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: @almost-black;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .close {
+    @local-size: 50px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: @local-size;
+    width: @local-size - 10;
+    color: @darker-gray;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:focus {
+      color: @border-gray;
+      outline: none;
+    }
+
+    &:active {
+      color: @border-gray;
+    }
+  }
+}

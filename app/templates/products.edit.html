@@ -37,7 +37,7 @@
         </div>
         <div class="images">
           <!-- {{product}} -->
-          <div class="image" ng-repeat="image in product.images">
+          <div class="image" ng-repeat="image in product.images" ng-click="openImage(image)">
             <img ng-src="{{image.Location}}" alt="{{image.Key}}">
           </div>
         </div>
@@ -100,3 +100,5 @@
     </div>
   </div>
 </section>
+
+<image-closeup></image-closeup>

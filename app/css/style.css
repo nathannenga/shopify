@@ -716,21 +716,10 @@ a:hover {
   margin-bottom: 10px;
   font-weight: 300;
 }
-.button-basics:focus {
-  outline: none;
-}
 .button-ca-subtle {
   background-color: #fff;
   border: 1px solid #dddddd;
   color: #0078bd;
-}
-.button-ca-subtle:hover {
-  background-color: #fafafa;
-}
-.button-ca-subtle:disabled {
-  background-color: #fafafa;
-  color: #cccccc;
-  cursor: auto;
 }
 .button-small-basics {
   padding: 7px 14px;
@@ -781,6 +770,37 @@ button.ca-subtle:disabled {
 button.small {
   padding: 7px 14px;
   margin: 0;
+}
+.lg-modal {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2a2c2e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.lg-modal .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 50px;
+  width: 40px;
+  color: #767676;
+  cursor: pointer;
+}
+.lg-modal .close:hover {
+  color: #fff;
+}
+.lg-modal .close:focus {
+  color: #dddddd;
+  outline: none;
+}
+.lg-modal .close:active {
+  color: #dddddd;
 }
 header {
   width: 100%;
@@ -1060,6 +1080,7 @@ section.admin-content .image {
   align-items: center;
   margin: 10px 3px 20px 0px;
   border: 1px solid #dddddd;
+  cursor: pointer;
 }
 section.admin-content .image img {
   max-width: 100%;
@@ -1083,17 +1104,6 @@ section.admin-content .file-upload .custom-file-upload {
   color: #0078bd;
   padding: 7px 14px;
   margin: 0;
-}
-section.admin-content .file-upload .custom-file-upload:focus {
-  outline: none;
-}
-section.admin-content .file-upload .custom-file-upload:hover {
-  background-color: #fafafa;
-}
-section.admin-content .file-upload .custom-file-upload:disabled {
-  background-color: #fafafa;
-  color: #cccccc;
-  cursor: auto;
 }
 section.table .box {
   background-color: #fff;
@@ -1132,6 +1142,51 @@ section.table .img-wrapper.w-img {
 section.table .img-wrapper img {
   max-height: 50px;
   max-width: 100%;
+}
+section.image-closeup {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2a2c2e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+section.image-closeup .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 50px;
+  width: 40px;
+  color: #767676;
+  cursor: pointer;
+}
+section.image-closeup .close:hover {
+  color: #fff;
+}
+section.image-closeup .close:focus {
+  color: #dddddd;
+  outline: none;
+}
+section.image-closeup .close:active {
+  color: #dddddd;
+}
+section.image-closeup .container {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+section.image-closeup .container img {
+  max-height: 100%;
+}
+section.image-closeup .remove {
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
 }
 section.home .sub-hero {
   text-align: center;

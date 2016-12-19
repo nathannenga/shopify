@@ -1,0 +1,12 @@
+<section class="image-closeup animated-fast slideInUp" ng-if="activeImage">
+  <div class="close ion-ios-close-empty" ng-click="closeModal()"></div>
+
+  <div class="container">
+    <img ng-src="{{activeImage.Location}}" alt="{{activeImage.Key}}">
+    <div class="actions">
+      <div class="remove">
+        <button class="ca-subtle small" ng-click="removeImage(activeImage)">Remove image</button>
+      </div>
+    </div>
+  </div>
+</section>
