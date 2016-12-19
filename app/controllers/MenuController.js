@@ -13,4 +13,5 @@ angular.module('Shopify')
   $scope.activateTab = function (tab) {
     $scope.activeTab = tab;
   };
+  
 }]);

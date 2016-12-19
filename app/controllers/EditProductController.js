@@ -1,8 +1,10 @@
 angular.module('Shopify')
 
-.controller('EditProductController', ['$scope', 'apiService', 'editableProduct', function ($scope, apiService, editableProduct) {
+.controller('EditProductController', ['$scope', 'apiService', 'editableProduct', '$rootScope',
+function ($scope, apiService, editableProduct, $rootScope) {
+
   if (editableProduct) {
-    $scope.product = editableProduct;
+    $scope.product = editableProduct[0];
     $scope.pageTitle = angular.copy(editableProduct.title) || 'Edit Product';
   } else {
     $scope.product = {
@@ -24,5 +26,16 @@ angular.module('Shopify')
       console.error(err);
       alertify.error('There was an error with your request');
     })
+  };
+
+  $rootScope.$on('image added', function (e, image) {
+    addToImageArray(image);
+  })
+
+  function addToImageArray (image) {
+    if (!$scope.product) $scope.product = {};
+    if (!$scope.product.images || !$scope.product.images.length) $scope.product.images = [];
+
+    $scope.product.images.push(image);
   };
 }]);

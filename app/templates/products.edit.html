@@ -33,18 +33,26 @@
       <div class="section">
         <div class="title-link">
           <h4>Images</h4>
-          <a>Add image</a>
+          <!-- <a>Add image</a> -->
         </div>
-        <div class="">
-          <input type="file" images="images" accept="image/*" fileread>
-          <button class="ca-subtle small">Add an image</button>
+        <div class="images">
+          <!-- {{product}} -->
+          <div class="image" ng-repeat="image in product.images">
+            <img ng-src="{{image.Location}}" alt="{{image.Key}}">
+          </div>
+        </div>
+        <div class="file-upload">
+          <label for="file-upload" class="custom-file-upload">
+            Upload image
+          </label>
+          <input type="file" id="file-upload" images="images" accept="image/*" fileread>
         </div>
       </div>
 
       <div class="section">
         <h4>Pricing</h4>
         <div class="both">
-          <label>
+          <label class="last">
             <span>Price</span>
             <div class="with-icon">
               <span class="icon">$</span>
@@ -65,7 +73,7 @@
       <div class="section">
         <h4>Inventory</h4>
         <div class="both">
-          <label>
+          <label class="last">
             <span>SKU (Stock Keeping Unit)</span>
             <input type="text" ng-model="product.sku">
           </label>

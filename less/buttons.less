@@ -1,4 +1,4 @@
-button {
+.button-basics {
   cursor: pointer;
   border-style: none;
   padding: @form-padding @form-padding + 10px;
@@ -9,6 +9,31 @@ button {
   &:focus {
     outline: none;
   }
+}
+
+.button-ca-subtle {
+  background-color: #fff;
+  border: 1px solid @border-gray;
+  color: @blue;
+
+  &:hover {
+    background-color: darken(#fff, 2%);
+  }
+
+  &:disabled {
+    background-color: darken(#fff, 2%);
+    color: darken(#fff, 20%);
+    cursor: auto;
+  }
+}
+
+.button-small-basics {
+  padding: 7px 14px;
+  margin: 0;
+}
+
+button {
+  .button-basics;
 
   &.ca {
     color: #fff;
@@ -33,24 +58,10 @@ button {
   }
 
   &.ca-subtle {
-
-    background-color: #fff;
-    border: 1px solid @border-gray;
-    color: @blue;
-
-    &:hover {
-      background-color: darken(#fff, 2%);
-    }
-
-    &:disabled {
-      background-color: darken(#fff, 2%);
-      color: darken(#fff, 20%);
-      cursor: auto;
-    }
+    .button-ca-subtle;
   }
 
   &.small {
-    padding: 7px 14px;
-    margin: 0;
+    .button-small-basics;
   }
 }

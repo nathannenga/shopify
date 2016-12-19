@@ -708,6 +708,34 @@ a:hover {
   -moz-animation: spin 0.5s linear infinite;
   animation: spin 0.5s linear infinite;
 }
+.button-basics {
+  cursor: pointer;
+  border-style: none;
+  padding: 15px 25px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+.button-basics:focus {
+  outline: none;
+}
+.button-ca-subtle {
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  color: #0078bd;
+}
+.button-ca-subtle:hover {
+  background-color: #fafafa;
+}
+.button-ca-subtle:disabled {
+  background-color: #fafafa;
+  color: #cccccc;
+  cursor: auto;
+}
+.button-small-basics {
+  padding: 7px 14px;
+  margin: 0;
+}
 button {
   cursor: pointer;
   border-style: none;
@@ -1018,6 +1046,54 @@ section.admin-content .bottom {
   border-top: 1px solid #dddddd;
   margin-top: 20px;
   padding-top: 30px;
+}
+section.admin-content .images {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+section.admin-content .image {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 3px 20px 0px;
+  border: 1px solid #dddddd;
+}
+section.admin-content .image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+section.admin-content .file-upload {
+  margin-bottom: 10px;
+}
+section.admin-content .file-upload input[type="file"] {
+  display: none;
+}
+section.admin-content .file-upload .custom-file-upload {
+  cursor: pointer;
+  border-style: none;
+  padding: 15px 25px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-weight: 300;
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  color: #0078bd;
+  padding: 7px 14px;
+  margin: 0;
+}
+section.admin-content .file-upload .custom-file-upload:focus {
+  outline: none;
+}
+section.admin-content .file-upload .custom-file-upload:hover {
+  background-color: #fafafa;
+}
+section.admin-content .file-upload .custom-file-upload:disabled {
+  background-color: #fafafa;
+  color: #cccccc;
+  cursor: auto;
 }
 section.table .box {
   background-color: #fff;

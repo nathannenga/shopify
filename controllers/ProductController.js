@@ -1,5 +1,6 @@
 var Exports = module.exports = {},
-    Product = require('../models/ProductModel');
+    Product = require('../models/ProductModel'),
+    Image   = require('../models/ImageModel');
 
 Exports.save = function (req, res) {
   // TODO: UNCOMMENT AND REPLACE THE FOLLOWING 2 LINES
@@ -45,8 +46,10 @@ Exports.getUserProducts = function (req, res) {
 };
 
 Exports.getProduct = function (req, res) {
-  Product.findById(req.params.productId, function (err, result) {
+  Product.find({'_id': req.params.productId})
+  .populate({ path: 'images' })
+  .exec(function (err, result) {
     if (err) return res.status(404).send(err);
     return res.json(result);
-  })
+  });
 };

@@ -6,6 +6,7 @@ var ProductSchema = new mongoose.Schema({
   owner         : { type: String, ref: 'User' },
   title         : String,
   description   : String,
+  images        : [{ type: String, ref: 'Image' }],
   price         : Number,
   originalPrice : Number,
   sku           : String,
