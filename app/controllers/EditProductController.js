@@ -5,7 +5,7 @@ function ($scope, apiService, editableProduct, $rootScope) {
 
   if (editableProduct) {
     $scope.product = editableProduct[0];
-    $scope.pageTitle = angular.copy(editableProduct.title) || 'Edit Product';
+    $scope.pageTitle = angular.copy(editableProduct[0].title) || 'Edit Product';
   } else {
     $scope.product = {
       title         : 'Daniel T-shirt',
