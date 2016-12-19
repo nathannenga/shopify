@@ -31,4 +31,20 @@ section.table {
       font-size: 26px;
     }
   }
+
+  .img-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: @img-dimensions;
+
+    &.w-img {
+      border: 1px solid @light-gray;
+    }
+
+    img {
+      max-height: @img-dimensions/3*2.5;
+      max-width: 100%;
+    }
+  }
 }

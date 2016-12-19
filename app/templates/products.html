@@ -25,8 +25,10 @@
         </thead>
         <tbody>
           <tr ng-repeat="product in products">
-            <th ng-if="product.img"><img ng-src="{{product.img}}" alt="{{product.title}}" /></th>
-            <th ng-if="!product.img">
+            <th ng-if="product.images && product.images.length" class="img-wrapper w-img">
+              <img ng-src="{{product.images[0].Location}}" alt="{{product.title}}" />
+            </th>
+            <th ng-if="!product.images || !product.images.length" class="img-wrapper">
               <div class="img-placeholder">
                 <span class="icon ion-images"></span>
               </div>
