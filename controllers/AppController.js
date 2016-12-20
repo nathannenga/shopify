@@ -10,3 +10,12 @@ Exports.getProducts = function (req, res) {
     return res.json(result);
   });
 };
+
+Exports.getProduct = function (req, res) {
+  Product.findById(req.params.productId)
+  .populate({ path: 'images' })
+  .exec(function (err, result) {
+    if (err) return res.status(404).send(err);
+    return res.json(result);
+  });
+};

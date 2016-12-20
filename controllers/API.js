@@ -15,4 +15,5 @@ module.exports = function (app) {
 
   // APP
   app.get('/api/app/products', App.getProducts);
+  app.get('/api/app/product/:productId', App.getProduct);
 };
