@@ -1,6 +1,7 @@
 var User          = require('./UserController'),
     Product       = require('./ProductController'),
-    Image         = require('./ImageController');
+    Image         = require('./ImageController'),
+    App           = require('./AppController');
 
 module.exports = function (app) {
   app.put('/api/user-info', User.saveExtended);
@@ -11,4 +12,7 @@ module.exports = function (app) {
 
   app.get('/api/user-products', Product.getUserProducts);
   app.get('/api/product/:productId', Product.getProduct);
+
+  // APP
+  app.get('/api/app/products', App.getProducts);
 };
