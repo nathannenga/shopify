@@ -36,7 +36,7 @@
             <th><p><a ui-sref="edit-product({productId: product._id})">{{product.title}}</a></p></th>
             <th><p></p></th>
             <th><p></p></th>
-            <th><p>${{product.price}}<span ng-if="!product.price"> --</span></p></th>
+            <th><p>{{product.price | currency : symbol : fractionSize}}<span ng-if="!product.price"> --</span></p></th>
           </tr>
         </tbody>
       </table>
