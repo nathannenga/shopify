@@ -1105,6 +1105,9 @@ section.admin-content .file-upload .custom-file-upload {
   padding: 7px 14px;
   margin: 0;
 }
+section.table p {
+  font-size: 14px;
+}
 section.table .box {
   background-color: #fff;
   width: 100%;
