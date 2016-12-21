@@ -30,6 +30,7 @@ function ($scope, apiService, editableProduct, $rootScope) {
 
   $scope.openImage = function (image) {
     $rootScope.$emit('focus image', image);
+    $('body').addClass('hidden');
   };
 
   $rootScope.$on('image added', function (e, image) {
