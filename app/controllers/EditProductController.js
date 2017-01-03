@@ -44,12 +44,24 @@ function ($scope, apiService, editableProduct, $rootScope) {
   function openVariants () {
     $scope.variantText = 'Cancel';
     if (!$scope.product.options) $scope.product.options = [null];
+    if (!$scope.pills) $scope.pills = [];
     return;
   };
 
   function closeVariants () {
     $scope.variantText = 'Add variant';
     return;
+  };
+
+  $scope.pillInputChange = function (val) {
+    if (!val) return;
+    if (val[val.length - 1] !== ',') return;
+    createPill(val.slice(0, -1));
+    $rootScope.$emit('clear input pill');
+  };
+
+  function createPill (val) {
+    $scope.pills.push(val);
   };
 
   $rootScope.$on('image added', function (e, image) {

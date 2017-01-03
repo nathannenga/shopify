@@ -11,7 +11,7 @@
   <!-- <div class="bottom-container"> -->
     <div class="top">
       <p class="option-name">Option name</p>
-      <p class="option-values">Option values</p>
+      <p class="option-values">Option values (separate options with comma)</p>
       <div class="dead-div"></div>
     </div>
 
@@ -19,11 +19,14 @@
       <input class="option-name" placeholder="Size" type="text" ng-model="option.name" />
 
       <div class="input-ghost option-values">
-        <div class="pill">
-          <p>small</p>
-          <div class="delete-pill ion-ios-close-empty"></div>
+        <div class="pills" ng-if="pills.length">
+          <div class="pill" ng-repeat="pill in pills">
+            <p>{{pill}}</p>
+            <div class="delete-pill ion-ios-close-empty"></div>
+          </div>
         </div>
-        <input placeholder="Separate options with a comma" type="text" />
+        <input placeholder="Separate options with a comma" type="text"
+            ng-model="pillInput" ng-change="pillInputChange(pillInput)" input-pill/>
       </div>
 
       <div class="trash">

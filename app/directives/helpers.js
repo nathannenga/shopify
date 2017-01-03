@@ -8,4 +8,15 @@ angular.module('Shopify')
       })
     }
   }
+}])
+
+.directive('inputPill', ['$rootScope', function ($rootScope) {
+  return {
+    restrict: 'A',
+    link: function (scope, elem, attr) {
+      $rootScope.$on('clear input pill', function () {
+        scope.pillInput = '';
+      });
+    }
+  }
 }]);

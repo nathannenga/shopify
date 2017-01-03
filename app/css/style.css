@@ -1164,6 +1164,7 @@ section.admin-content .edit-variants .options,
 section.admin-content .edit-variants .top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 section.admin-content .edit-variants .option-name {
   width: 28%;
@@ -1213,7 +1214,9 @@ section.admin-content .edit-variants .input-ghost input {
   border: 0;
   height: 34px;
   margin: 0;
-  margin-top: 30px;
+}
+section.admin-content .edit-variants .pills {
+  margin: 10px 10px -5px;
 }
 section.admin-content .edit-variants .pill {
   background-color: #0078bd;
@@ -1221,7 +1224,7 @@ section.admin-content .edit-variants .pill {
   border-radius: 3px;
   padding: 0 10px;
   display: inline-flex;
-  margin: 10px 10px 0;
+  margin: 0 5px 5px 0;
 }
 section.admin-content .edit-variants .pill p {
   margin: 0;
