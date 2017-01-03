@@ -1,0 +1,34 @@
+<div class="section no-padding edit-variants">
+  <div class="top-container">
+    <div class="with-link">
+      <h4>Variants</h4>
+      <a ng-click="toggleVariants()">{{variantText}}</a>
+    </div>
+
+    <p class="description">Add variants if this product comes in multiple versions, like different sizes or colors.</p>
+  </div>
+  <div class="bottom-container" ng-if="variantsOpened">
+  <!-- <div class="bottom-container"> -->
+    <div class="top">
+      <p class="option-name">Option name</p>
+      <p class="option-values">Option values</p>
+      <div class="dead-div"></div>
+    </div>
+
+    <div class="options" ng-repeat="option in product.options">
+      <input class="option-name" placeholder="Size" type="text" ng-model="option.name" />
+
+      <div class="input-ghost option-values">
+        <div class="pill">
+          <p>small</p>
+          <div class="delete-pill ion-ios-close-empty"></div>
+        </div>
+        <input placeholder="Separate options with a comma" type="text" />
+      </div>
+
+      <div class="trash">
+        <span class="ion-trash-a"></span>
+      </div>
+    </div>
+  </div>
+</div>

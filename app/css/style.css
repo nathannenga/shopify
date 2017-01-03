@@ -405,6 +405,16 @@ th {
 .x-ng-cloak {
   display: none !important;
 }
+.input {
+  padding: 15px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+.input:focus {
+  outline: none;
+  border: 1px solid #767676;
+}
 input,
 textarea {
   padding: 15px;
@@ -432,6 +442,7 @@ a {
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 300;
 }
 a:hover {
   text-decoration: underline;
@@ -1039,6 +1050,24 @@ section.admin-content .section {
   border-radius: 3px;
   padding: 20px;
   background-color: #fff;
+  overflow: auto;
+}
+section.admin-content .section .description {
+  margin: 0 0 20px;
+}
+section.admin-content .section.no-padding {
+  padding: 0;
+}
+section.admin-content .section.no-padding .top-container {
+  padding: 20px 20px 0 20px;
+}
+section.admin-content .section.no-padding .bottom-container {
+  background-color: #f5f6f7;
+  padding: 20px;
+}
+section.admin-content .with-link {
+  display: flex;
+  justify-content: space-between;
 }
 section.admin-content .title-link {
   display: flex;
@@ -1126,6 +1155,88 @@ section.admin-content .file-upload .custom-file-upload {
   color: #0078bd;
   padding: 7px 14px;
   margin: 0;
+}
+section.admin-content .edit-variants .top,
+section.admin-content .edit-variants .bottom {
+  width: 100%;
+}
+section.admin-content .edit-variants .options,
+section.admin-content .edit-variants .top {
+  display: flex;
+  justify-content: space-between;
+}
+section.admin-content .edit-variants .option-name {
+  width: 28%;
+}
+section.admin-content .edit-variants .option-values {
+  width: 61%;
+}
+section.admin-content .edit-variants .shared-trash {
+  width: 36px;
+  height: 36px;
+}
+section.admin-content .edit-variants .dead-div {
+  width: 36px;
+  height: 36px;
+}
+section.admin-content .edit-variants .trash {
+  width: 36px;
+  height: 36px;
+  background-color: #fff;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section.admin-content .edit-variants .trash .ion-trash-a {
+  color: #0078bd;
+}
+section.admin-content .edit-variants .trash:hover {
+  background-color: #fafafa;
+}
+section.admin-content .edit-variants .input-ghost {
+  padding: 15px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  padding: 0;
+  min-height: 36px;
+  background-color: #fff;
+}
+section.admin-content .edit-variants .input-ghost:focus {
+  outline: none;
+  border: 1px solid #767676;
+}
+section.admin-content .edit-variants .input-ghost input {
+  border: 0;
+  height: 34px;
+  margin: 0;
+  margin-top: 30px;
+}
+section.admin-content .edit-variants .pill {
+  background-color: #0078bd;
+  color: #fff;
+  border-radius: 3px;
+  padding: 0 10px;
+  display: inline-flex;
+  margin: 10px 10px 0;
+}
+section.admin-content .edit-variants .pill p {
+  margin: 0;
+  color: #fff;
+  line-height: 24px;
+}
+section.admin-content .edit-variants .pill .delete-pill {
+  height: 100%;
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 24px;
+  margin-left: 15px;
+}
+section.table table {
+  width: 100%;
 }
 section.table p {
   font-size: 14px;

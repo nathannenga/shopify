@@ -18,6 +18,9 @@
 <section class="admin-content">
   <div class="content">
     <div class="left">
+      
+      <ng-include src="'/templates/product.variants.html'"></ng-include>
+
       <div class="section">
         <label>
           <span>Title</span>
@@ -78,14 +81,21 @@
       <div class="section">
         <h4>Inventory</h4>
         <div class="both">
-          <label class="last">
+          <label>
             <span>SKU (Stock Keeping Unit)</span>
             <input type="text" ng-model="product.sku">
           </label>
 
-          <label class="last">
+          <label>
             <span>Barcode (ISBN, UPC, GTIN, etc.)</span>
             <input type="text" ng-model="product.barcode">
+          </label>
+        </div>
+
+        <div class="both">
+          <label class="last">
+            <span>Available quantity</span>
+            <input type="number" placeholder="Example: 100" ng-model="product.quantity">
           </label>
         </div>
       </div>

@@ -3,6 +3,8 @@ angular.module('Shopify')
 .controller('EditProductController', ['$scope', 'apiService', 'editableProduct', '$rootScope',
 function ($scope, apiService, editableProduct, $rootScope) {
 
+  $scope.variantText = 'Add variant';
+
   if (editableProduct) {
     $scope.product = editableProduct[0];
     $scope.pageTitle = angular.copy(editableProduct[0].title) || 'Edit Product';
@@ -31,6 +33,23 @@ function ($scope, apiService, editableProduct, $rootScope) {
   $scope.openImage = function (image) {
     $rootScope.$emit('focus image', image);
     $('body').addClass('hidden');
+  };
+
+  $scope.toggleVariants = function () {
+    $scope.variantsOpened = !$scope.variantsOpened;
+    if ($scope.variantsOpened) openVariants();
+    else closeVariants();
+  };
+
+  function openVariants () {
+    $scope.variantText = 'Cancel';
+    if (!$scope.product.options) $scope.product.options = [null];
+    return;
+  };
+
+  function closeVariants () {
+    $scope.variantText = 'Add variant';
+    return;
   };
 
   $rootScope.$on('image added', function (e, image) {

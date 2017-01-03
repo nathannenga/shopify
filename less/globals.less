@@ -6,7 +6,7 @@
   display: none !important;
 }
 
-input, textarea {
+.input {
   padding: @form-padding;
   border: 1px solid @border-gray;
   border-radius: @br;
@@ -16,6 +16,10 @@ input, textarea {
     outline: none;
     border: 1px solid @darker-gray;
   }
+}
+
+input, textarea {
+  .input;
 }
 
 label {
@@ -37,6 +41,7 @@ a {
   text-decoration: none;
   cursor: pointer;
   font-size: 14px;
+  font-weight: 300;
 
   &:hover {
     text-decoration: underline;

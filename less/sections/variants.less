@@ -1,0 +1,88 @@
+section.admin-content {
+  .edit-variants {
+    .top, .bottom {
+      width: 100%;
+    }
+
+    .options, .top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .option-name {
+      width: 28%;
+    }
+
+    .option-values {
+      width: 61%;
+    }
+
+    .shared-trash {
+      @ld: 36px;
+      width: @ld;
+      height: @ld;
+    }
+
+    .dead-div {
+      .shared-trash;
+    }
+
+    .trash {
+      .shared-trash;
+      background-color: #fff;
+      border: 1px solid @border-gray;
+      border-radius: @br;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .ion-trash-a {
+        color: @blue;
+      }
+
+      &:hover {
+        background-color: darken(#fff, 2%);
+      }
+    }
+
+    .input-ghost {
+      .input;
+      padding: 0;
+      min-height: 36px;
+      background-color: #fff;
+
+      input {
+        border: 0;
+        height: 34px;
+        margin: 0;
+        margin-top: 30px;
+      }
+    }
+
+    .pill {
+      background-color: @blue;
+      color: #fff;
+      border-radius: @br;
+      padding: 0 10px;
+      display: inline-flex;
+      margin: 10px 10px 0;
+
+      @local-lh: 24px;
+
+      p {
+        margin: 0;
+        color: #fff;
+        line-height: @local-lh;
+      }
+
+      .delete-pill {
+        height: 100%;
+        cursor: pointer;
+        font-size: @local-lh;
+        line-height: @local-lh;
+        margin-left: 15px;
+      }
+    }
+  }
+}

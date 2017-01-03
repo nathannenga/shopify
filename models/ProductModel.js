@@ -10,7 +10,8 @@ var ProductSchema = new mongoose.Schema({
   price         : Number,
   originalPrice : Number,
   sku           : String,
-  barcode       : String
+  barcode       : String,
+  quantity      : Number
 });
 
 module.exports = mongoose.model('Product', ProductSchema);

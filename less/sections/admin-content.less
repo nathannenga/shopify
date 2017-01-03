@@ -76,6 +76,29 @@ section.admin-content {
     margin-bottom: 20px;
     .card;
     background-color: #fff;
+    overflow: auto;
+
+    .description {
+      margin: 0 0 20px;
+    }
+
+    &.no-padding {
+      padding: 0;
+
+      .top-container {
+        padding: @local-spacing @local-spacing 0 @local-spacing;
+      }
+
+      .bottom-container {
+        background-color: @light-gray;
+        padding: @local-spacing;
+      }
+    }
+  }
+
+  .with-link {
+    display: flex;
+    justify-content: space-between;
   }
 
   .title-link {
