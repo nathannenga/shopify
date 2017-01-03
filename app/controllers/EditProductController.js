@@ -61,7 +61,8 @@ function ($scope, apiService, editableProduct, $rootScope) {
   };
 
   function createPill (val) {
-    $scope.pills.push(val);
+    if ($scope.pills.indexOf(val) < 0) $scope.pills.push(val);
+    else alertify.log('That value is already in your list.');
   };
 
   $rootScope.$on('image added', function (e, image) {
