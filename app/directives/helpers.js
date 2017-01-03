@@ -14,8 +14,8 @@ angular.module('Shopify')
   return {
     restrict: 'A',
     link: function (scope, elem, attr) {
-      $rootScope.$on('clear input pill', function () {
-        scope.pillInput = '';
+      $rootScope.$on('clear input pill', function (e, data) {
+        if (data.optionIndex == attr.optionIndex) scope.pillInput = '';
       });
     }
   }

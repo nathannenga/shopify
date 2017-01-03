@@ -54,11 +54,11 @@ function ($scope, apiService, editableProduct, $rootScope) {
     $scope.variantText = 'Add variant';
   };
 
-  $scope.pillInputChange = function (val, optionName) {
+  $scope.pillInputChange = function (val, optionIndex) {
     if (!val) return;
     if (val[val.length - 1] !== ',') return;
-    createPill(val.slice(0, -1), optionName);
-    $rootScope.$emit('clear input pill');
+    createPill(val.slice(0, -1), optionIndex);
+    $rootScope.$emit('clear input pill', {optionIndex: optionIndex});
   };
 
   function createPill (val, optionIndex) {
@@ -72,7 +72,8 @@ function ($scope, apiService, editableProduct, $rootScope) {
 
   $scope.removeOption = function (index) {
     $scope.product.options.splice(index, 1);
-    if (!$scope.product.options.lenght) $scope.addOption();
+    $rootScope.$emit('clear input pill', {optionIndex: index})
+    if (!$scope.product.options.length) $scope.addOption();
   };
 
   $scope.addOption = function () {

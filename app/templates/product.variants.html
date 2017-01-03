@@ -25,10 +25,10 @@
           </div>
         </div>
         <input placeholder="Separate options with a comma" type="text"
-            ng-model="pillInput" ng-change="pillInputChange(pillInput, $index)" input-pill/>
+            ng-model="pillInput" ng-change="pillInputChange(pillInput, $index)" input-pill option-index="{{$index}}"/>
       </div>
 
-      <div class="trash" ng-click="removeOption($index)">
+      <div class="trash" ng-click="removeOption($index, pillInput)">
         <span class="ion-trash-a"></span>
       </div>
     </div>
