@@ -4,6 +4,10 @@ angular.module('Shopify')
 function ($scope, apiService, editableProduct, $rootScope) {
 
   $scope.variantText = 'Add variant';
+  var optionBlueprint = {
+    name: null,
+    values: []
+  };
 
   if (editableProduct) {
     $scope.product = editableProduct[0];
@@ -43,30 +47,36 @@ function ($scope, apiService, editableProduct, $rootScope) {
 
   function openVariants () {
     $scope.variantText = 'Cancel';
-    if (!$scope.product.options) $scope.product.options = [null];
-    if (!$scope.pills) $scope.pills = [];
-    return;
+    if (!$scope.product || !$scope.product.options) $scope.product.options = [angular.copy(optionBlueprint)];
   };
 
   function closeVariants () {
     $scope.variantText = 'Add variant';
-    return;
   };
 
-  $scope.pillInputChange = function (val) {
+  $scope.pillInputChange = function (val, optionName) {
     if (!val) return;
     if (val[val.length - 1] !== ',') return;
-    createPill(val.slice(0, -1));
+    createPill(val.slice(0, -1), optionName);
     $rootScope.$emit('clear input pill');
   };
 
-  function createPill (val) {
-    if ($scope.pills.indexOf(val) < 0) $scope.pills.push(val);
+  function createPill (val, optionIndex) {
+    if ($scope.product.options[optionIndex].values.indexOf(val) < 0) $scope.product.options[optionIndex].values.push(val);
     else alertify.log('That value is already in your list.');
   };
 
-  $scope.removePill = function (index) {
-    $scope.pills.splice(index, 1);
+  $scope.removePill = function (index, optionIndex) {
+    $scope.product.options[optionIndex].values.splice(index, 1);
+  };
+
+  $scope.removeOption = function (index) {
+    $scope.product.options.splice(index, 1);
+    if (!$scope.product.options.lenght) $scope.addOption();
+  };
+
+  $scope.addOption = function () {
+    $scope.product.options.push(angular.copy(optionBlueprint));
   };
 
   $rootScope.$on('image added', function (e, image) {

@@ -15,23 +15,26 @@
       <div class="dead-div"></div>
     </div>
 
-    <div class="options" ng-repeat="option in product.options">
-      <input class="option-name" placeholder="Size" type="text" ng-model="option.name" />
-
+    <div class="options" ng-repeat="option in product.options track by $index">
+      <input class="option-name" placeholder="Example: size" type="text" ng-model="option.name" />
       <div class="input-ghost option-values">
-        <div class="pills" ng-if="pills.length">
-          <div class="pill" ng-repeat="pill in pills">
-            <p>{{pill}}</p>
-            <div class="delete-pill ion-ios-close-empty" ng-click="removePill($index)"></div>
+        <div class="pills" ng-if="option.values.length">
+          <div class="pill" ng-repeat="value in option.values">
+            <p>{{value}}</p>
+            <div class="delete-pill ion-ios-close-empty" ng-click="removePill($index, $parent.$index)"></div>
           </div>
         </div>
         <input placeholder="Separate options with a comma" type="text"
-            ng-model="pillInput" ng-change="pillInputChange(pillInput)" input-pill/>
+            ng-model="pillInput" ng-change="pillInputChange(pillInput, $index)" input-pill/>
       </div>
 
-      <div class="trash">
+      <div class="trash" ng-click="removeOption($index)">
         <span class="ion-trash-a"></span>
       </div>
     </div>
+
+    <button class="ca-subtle small" ng-click="addOption()" ng-if="product.options && product.options.length < 3">
+      Add another option
+    </button>
   </div>
 </div>
