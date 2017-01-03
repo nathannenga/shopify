@@ -1190,6 +1190,7 @@ section.admin-content .edit-variants .trash {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10px;
 }
 section.admin-content .edit-variants .trash .ion-trash-a {
   color: #0078bd;

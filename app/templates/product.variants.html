@@ -22,7 +22,7 @@
         <div class="pills" ng-if="pills.length">
           <div class="pill" ng-repeat="pill in pills">
             <p>{{pill}}</p>
-            <div class="delete-pill ion-ios-close-empty"></div>
+            <div class="delete-pill ion-ios-close-empty" ng-click="removePill($index)"></div>
           </div>
         </div>
         <input placeholder="Separate options with a comma" type="text"

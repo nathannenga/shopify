@@ -65,6 +65,10 @@ function ($scope, apiService, editableProduct, $rootScope) {
     else alertify.log('That value is already in your list.');
   };
 
+  $scope.removePill = function (index) {
+    $scope.pills.splice(index, 1);
+  };
+
   $rootScope.$on('image added', function (e, image) {
     addToImageArray(image);
   });
