@@ -963,10 +963,21 @@ section.admin-content .content {
   display: flex;
   justify-content: space-between;
 }
+section.admin-content .here-text {
+  font-weight: 300;
+  text-transform: none;
+  font-size: 14px;
+}
 section.admin-content label span {
   font-weight: 300;
   text-transform: none;
   font-size: 14px;
+}
+section.admin-content p {
+  font-weight: 300;
+  text-transform: none;
+  font-size: 14px;
+  display: inline-block;
 }
 section.admin-content input,
 section.admin-content textarea {
@@ -1048,6 +1059,14 @@ section.admin-content .both {
 }
 section.admin-content .both label {
   width: 48.5%;
+}
+section.admin-content .check input {
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+}
+section.admin-content .check p {
+  margin-left: 5px;
 }
 section.admin-content .last input {
   margin-bottom: 5px;

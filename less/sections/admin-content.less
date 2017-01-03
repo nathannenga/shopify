@@ -7,10 +7,19 @@ section.admin-content {
     justify-content: space-between;
   }
 
-  label span {
+  .here-text {
     font-weight: 300;
     text-transform: none;
     font-size: 14px;
+  }
+
+  label span {
+    .here-text;
+  }
+
+  p {
+    .here-text;
+    display: inline-block;
   }
 
   input, textarea {
@@ -88,6 +97,17 @@ section.admin-content {
     justify-content: space-between;
     label {
       width: 48.5%;
+    }
+  }
+
+  .check {
+    input {
+      display: inline-block;
+      width: inherit;
+      height: inherit;
+    }
+    p {
+      margin-left: 5px;
     }
   }
 
