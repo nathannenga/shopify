@@ -990,6 +990,11 @@ section.admin-content p {
   font-size: 14px;
   display: inline-block;
 }
+section.admin-content th {
+  font-weight: 300;
+  text-transform: none;
+  font-size: 14px;
+}
 section.admin-content input,
 section.admin-content textarea {
   width: 100%;
@@ -1238,6 +1243,19 @@ section.admin-content .edit-variants .pill .delete-pill {
   font-size: 24px;
   line-height: 24px;
   margin-left: 15px;
+}
+section.admin-content .variants {
+  margin-top: 20px;
+}
+section.admin-content .variants table {
+  width: 100%;
+}
+section.admin-content .variants th {
+  border-bottom: 1px solid red;
+  width: 200px;
+}
+section.admin-content .variants .one {
+  width: 92px;
 }
 section.table table {
   width: 100%;

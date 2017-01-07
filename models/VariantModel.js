@@ -8,7 +8,8 @@ var VariantSchema = new mongoose.Schema({
   price         : Number,
   sku           : String,
   barcode       : String,
-  quantity      : Number
+  quantity      : Number,
+  active        : Boolean
 });
 
 module.exports = mongoose.model('Variant', VariantSchema);
