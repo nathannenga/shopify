@@ -40,7 +40,7 @@
     <div class="variants">
       <p>Modify the variants to be created:</p>
 
-      <table>
+      <table rules="group">
         <thead>
           <tr>
             <th class="one"></th>
@@ -50,7 +50,11 @@
           </tr>
         </thead>
         <tbody>
-          
+          <div class="" ng-repeat="option in options">
+            <tr ng-repeat="value in option.values">
+
+            </tr>
+          </div>
         </tbody>
       </table>
     </div>

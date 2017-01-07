@@ -994,6 +994,8 @@ section.admin-content th {
   font-weight: 300;
   text-transform: none;
   font-size: 14px;
+  height: 40px;
+  width: 200px;
 }
 section.admin-content input,
 section.admin-content textarea {
@@ -1249,10 +1251,10 @@ section.admin-content .variants {
 }
 section.admin-content .variants table {
   width: 100%;
+  border-collapse: collapse;
 }
-section.admin-content .variants th {
-  border-bottom: 1px solid red;
-  width: 200px;
+section.admin-content .variants thead {
+  border-bottom: 1px solid #d8d8d8;
 }
 section.admin-content .variants .one {
   width: 92px;

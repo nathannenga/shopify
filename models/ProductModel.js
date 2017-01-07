@@ -7,6 +7,7 @@ var ProductSchema = new mongoose.Schema({
   title         : String,
   description   : String,
   images        : [{ type: String, ref: 'Image' }],
+  options       : [{ type: String, ref: 'Option'}],
   price         : Number,
   originalPrice : Number,
   sku           : String,
