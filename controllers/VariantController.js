@@ -1,7 +1,8 @@
-var Exports = module.exports = {},
-    Product = require('../models/ProductModel'),
-    Image   = require('../models/ImageModel'),
-    Option  = require('../models/OptionModel');
+var Exports  = module.exports = {},
+    Product  = require('../models/ProductModel'),
+    Image    = require('../models/ImageModel'),
+    Option   = require('../models/OptionModel'),
+    Variant  = require('../models/VariantModel');
 
 Exports.saveOptions = function (productId, product) {
   if (product.removedOptions && product.removedOptions.length)
@@ -24,7 +25,28 @@ Exports.saveOptions = function (productId, product) {
         product.options.push(savedOption._id);
         product.save();
       })
+
+      saveVariants(savedOption._id, productId, product);
     });
+  })
+};
+
+function saveVariants (optionId, productId, product) {
+  product.variants.forEach(function (variant) {
+    variant.product = productId;
+    variant.option  = optionId;
+
+    var newVariant = new Variant(variant);
+    newVariant.save(function (err, savedVariant) {
+      if (err) return console.log('Error saving variant: ', err);
+
+      Product.findByIdAndUpdate(
+        productId,
+        {$push: { "variants" : savedVariant._id }},
+        {safe: true, upsert: true},
+        function (err, model) {}
+      );
+    })
   })
 };
 

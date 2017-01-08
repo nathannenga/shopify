@@ -1,7 +1,7 @@
 angular.module('Shopify')
 
-.controller('EditProductController', ['$scope', 'apiService', 'validator', 'editableProduct', '$rootScope',
-function ($scope, apiService, validator, editableProduct, $rootScope) {
+.controller('EditProductController', ['$scope', 'apiService', 'validator', 'variantService', 'editableProduct', '$rootScope',
+function ($scope, apiService, validator, variantService, editableProduct, $rootScope) {
 
   $scope.variantText = 'Add variant';
   var optionBlueprint = {
@@ -74,12 +74,23 @@ function ($scope, apiService, validator, editableProduct, $rootScope) {
 
   function createPill (val, optionIndex) {
     if (!val) return;
-    if ($scope.product.options[optionIndex].values.indexOf(val) < 0) $scope.product.options[optionIndex].values.push(val);
-    else alertify.log('That value is already in your list.');
+    if ($scope.product.options[optionIndex].values.indexOf(val) < 0) {
+      $scope.product.options[optionIndex].values.push(val);
+      createVariant(val, $scope.product.options[optionIndex].name);
+    } else {
+      alertify.log('That value is already in your list.');
+    }
   };
 
   $scope.removePill = function (index, optionIndex) {
     $scope.product.options[optionIndex].values.splice(index, 1);
+  };
+
+  function createVariant (val, optionName) {
+    if (!val) return console.error('Missing value for variant.');
+    var newVariant = variantService.newVariant(val, optionName);
+    if (!$scope.product.variants) $scope.product.variants = [];
+    $scope.product.variants.push(newVariant);
   };
 
   $scope.removeOption = function (index) {

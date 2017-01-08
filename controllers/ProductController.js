@@ -8,14 +8,20 @@ Exports.save = function (req, res) {
   // TODO: UNCOMMENT AND REPLACE THE FOLLOWING 2 LINES
   // if (!req.user || !req.user._id) return res.status(401).send('Please log in');
 
-  var newProduct = new Product(req.body);
+  var newProduct = new Product();
+  for (key in req.body) {
+    if (key == '_id' || key == 'options' || key == 'variants') continue;
+    newProduct[key] = req.body[key];
+  }
+
   // newProduct.owner = req.user._id;
   newProduct.owner = 'ryNrKHENe';
   newProduct.save(function (err, result) {
     if (err) return res.status(500).send(err);
 
     // Make promise?
-    VariantCtrl.saveOptions(result._id, req.body);
+    if (req.body.options && req.body.variants)
+      VariantCtrl.saveOptions(result._id, req.body);
 
     return res.json(result);
   })
@@ -29,7 +35,7 @@ Exports.edit = function (req, res) {
     if (err) return res.status(404).send(err);
 
     for (key in req.body) {
-      if (key == '_id' || key == 'options') continue;
+      if (key == '_id' || key == 'options' || key == 'variants') continue;
       product[key] = req.body[key];
     }
 
@@ -37,7 +43,8 @@ Exports.edit = function (req, res) {
       if (err) return res.status(500).send(err);
 
       // Make promise?
-      VariantCtrl.saveOptions(result._id, req.body);
+      if (req.body.options && req.body.variants)
+        VariantCtrl.saveOptions(result._id, req.body);
 
       return res.json(result);
     })
@@ -62,6 +69,7 @@ Exports.getProduct = function (req, res) {
   Product.find({'_id': req.params.productId})
   .populate({ path: 'images' })
   .populate({ path: 'options' })
+  .populate({ path: 'variants' })
   .exec(function (err, result) {
     if (err) return res.status(404).send(err);
     return res.json(result);

@@ -5,6 +5,7 @@ var VariantSchema = new mongoose.Schema({
   _id           : { type: String, 'default': shortid.generate },
   product       : { type: String, ref: 'Product' },
   option        : { type: String, ref: 'Option'},
+  attributes    : { optionName: String, value: String },
   price         : Number,
   sku           : String,
   barcode       : String,
