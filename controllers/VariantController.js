@@ -4,6 +4,9 @@ var Exports = module.exports = {},
     Option  = require('../models/OptionModel');
 
 Exports.saveOptions = function (productId, product) {
+  if (product.removedOptions && product.removedOptions.length)
+    removeOptions(productId, product.removedOptions);
+
   product.options.forEach(function (option) {
     if (option._id) return overrideOption(product, option);
 
@@ -32,5 +35,22 @@ function overrideOption (product, option) {
     foundOption.name = option.name;
     foundOption.values = option.values;
     foundOption.save();
+  })
+};
+
+function removeOptions (productId, removedOptions) {
+  removedOptions.forEach(function (optionId) {
+    // REMOVE OPTION FROM PRODUCT
+    Product.findById(productId, function (err, result) {
+      result.options = result.options.filter(function (o) {
+        if (o == optionId) return false;
+        return true;
+      })
+
+      result.save();
+    })
+
+    // REMOVE OPTION
+    Option.find({ _id: optionId }).remove().exec();
   })
 };

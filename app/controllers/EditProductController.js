@@ -1,7 +1,7 @@
 angular.module('Shopify')
 
-.controller('EditProductController', ['$scope', 'apiService', 'editableProduct', '$rootScope',
-function ($scope, apiService, editableProduct, $rootScope) {
+.controller('EditProductController', ['$scope', 'apiService', 'validator', 'editableProduct', '$rootScope',
+function ($scope, apiService, validator, editableProduct, $rootScope) {
 
   $scope.variantText = 'Add variant';
   var optionBlueprint = {
@@ -13,7 +13,7 @@ function ($scope, apiService, editableProduct, $rootScope) {
     if (editableProduct) {
       $scope.product = editableProduct[0];
       $scope.pageTitle = angular.copy(editableProduct[0].title) || 'Edit Product';
-      if ($scope.product.options) $scope.toggleVariants();
+      if ($scope.product.options && $scope.product.options.length) $scope.toggleVariants();
     } else {
       $scope.product = {
         title         : 'Daniel T-shirt',
@@ -27,10 +27,13 @@ function ($scope, apiService, editableProduct, $rootScope) {
   }
 
   $scope.saveProduct = function (product) {
-    console.warn($scope.product);
+    product = validator.cleanProduct(product);
+    try { validator.validateProduct(product); } catch (err) { return alertify.error(err); }
+
     apiService.saveProduct(product)
     .then(function (response) {
       alertify.success('Your product has been saved');
+      if (!product.options || !product.options.length) $scope.toggleVariants(false);
     })
     .catch(function (err) {
       console.error(err);
@@ -43,15 +46,19 @@ function ($scope, apiService, editableProduct, $rootScope) {
     $('body').addClass('hidden');
   };
 
-  $scope.toggleVariants = function () {
-    $scope.variantsOpened = !$scope.variantsOpened;
+  $scope.toggleVariants = function (command) {
+    if (command === false) $scope.variantsOpened = false;
+    else if(command === true) $scope.variantsOpened = true;
+    else $scope.variantsOpened = !$scope.variantsOpened;
+
     if ($scope.variantsOpened) openVariants();
     else closeVariants();
   };
 
   function openVariants () {
     $scope.variantText = 'Cancel';
-    if (!$scope.product || !$scope.product.options) $scope.product.options = [angular.copy(optionBlueprint)];
+    if (!$scope.product || !$scope.product.options || !$scope.product.options.length)
+      $scope.product.options = [angular.copy(optionBlueprint)];
   };
 
   function closeVariants () {
@@ -66,6 +73,7 @@ function ($scope, apiService, editableProduct, $rootScope) {
   };
 
   function createPill (val, optionIndex) {
+    if (!val) return;
     if ($scope.product.options[optionIndex].values.indexOf(val) < 0) $scope.product.options[optionIndex].values.push(val);
     else alertify.log('That value is already in your list.');
   };
@@ -75,9 +83,16 @@ function ($scope, apiService, editableProduct, $rootScope) {
   };
 
   $scope.removeOption = function (index) {
+    if ($scope.product.options[index]._id) addToDeletedOptions($scope.product.options[index]._id);
     $scope.product.options.splice(index, 1);
     $rootScope.$emit('clear input pill', {optionIndex: index})
     if (!$scope.product.options.length) $scope.addOption();
+  };
+
+  function addToDeletedOptions (optionId) {
+    if (!$scope.product.removedOptions)
+      $scope.product.removedOptions = [];
+    $scope.product.removedOptions.push(optionId);
   };
 
   $scope.addOption = function () {
@@ -98,7 +113,8 @@ function ($scope, apiService, editableProduct, $rootScope) {
 
   function addToImageArray (image) {
     if (!$scope.product) $scope.product = {};
-    if (!$scope.product.images || !$scope.product.images.length) $scope.product.images = [];
+    if (!$scope.product.images || !$scope.product.images.length)
+      $scope.product.images = [];
 
     $scope.product.images.push(image);
   };
