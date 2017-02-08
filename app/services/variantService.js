@@ -17,8 +17,10 @@ angular.module('Shopify')
 
   function variantSchema (val, optionName) {
     this.attributes = {
-      optionName : optionName || '',
-      value: val,
+      values: [{
+        name: val,
+        optionName: optionName
+      }],
       quantity: 0,
       sku: '',
       barcode: ''
@@ -26,8 +28,51 @@ angular.module('Shopify')
     this.active = true;
   }
 
-  service.newVariant = function (val, optionName) {
+  function createVariant (val, optionName) {
     return new variantSchema(val, optionName);
+  };
+
+  service.renderVariants = function (newVar, optionName, allVars, allOptions) {
+    var variant  = angular.copy(newVar),
+        variants = angular.copy(allVars),
+        options  = angular.copy(allOptions);
+
+    // If only one option, new variant is only pointing to one option
+    if (options.length === 1) {
+      variants.push(createVariant(newVar, optionName));
+      return variants;
+    }
+
+    // This is where things get CRAAAZY!!
+    if (options.length === 2) {
+      // Add the new variant to the first option
+      if (variants[0].attributes.values.length < 2) {
+        variants = variants.map(function (v) {
+          v.attributes.values.push({
+            name: variant,
+            optionName: optionName
+          });
+          return v;
+        });
+      } else {
+        // create a new copy of the options in the first one
+        // to itterate over the new option value
+        var newVariantRound = [];
+        allOptions[0].values.forEach(function (optionValue) {
+          var newVariant = createVariant(optionValue, allOptions[0].name);
+          newVariant.attributes.values.push({
+            name: newVar,
+            optionName: optionName
+          })
+          newVariantRound.push(newVariant);
+        })
+
+        variants = variants.concat(newVariantRound);
+      }
+
+      console.warn(variants);
+      return variants;
+    }
   };
 
   return service;

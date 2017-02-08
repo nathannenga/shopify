@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <button class="ca-subtle small" ng-click="addOption()" ng-if="product.options && product.options.length < 3">
+    <button class="ca-subtle small" ng-click="addOption()" ng-if="product.options && product.options.length < 2">
       Add another option
     </button>
 
@@ -55,7 +55,7 @@
           <tr ng-repeat="variant in product.variants">
             <th class="one"><input type="checkbox" ng-model="variant.active"/></th>
             <th>
-              {{variant.attributes.value}}
+              <span ng-repeat="val in variant.attributes.values">{{val.name}} </span>
             </th>
 
             <th><input type="number" placeholder="0" min="0" step="1" ng-model="variant.quantity"/></th>

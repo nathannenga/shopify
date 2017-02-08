@@ -88,9 +88,14 @@ function ($scope, apiService, validator, variantService, editableProduct, $rootS
 
   function createVariant (val, optionName) {
     if (!val) return console.error('Missing value for variant.');
-    var newVariant = variantService.newVariant(val, optionName);
+    // var newVariant = variantService.newVariant(val, optionName);
     if (!$scope.product.variants) $scope.product.variants = [];
-    $scope.product.variants.push(newVariant);
+    // $scope.product.variants.push(newVariant);
+
+    var newVars = variantService.renderVariants(val, optionName, $scope.product.variants, $scope.product.options);
+    console.info(newVars);
+
+    $scope.product.variants = newVars;
   };
 
   $scope.removeOption = function (index) {
