@@ -58,13 +58,17 @@ angular.module('Shopify')
         // create a new copy of the options in the first one
         // to itterate over the new option value
         var newVariantRound = [];
-        allOptions[0].values.forEach(function (optionValue) {
-          var newVariant = createVariant(optionValue, allOptions[0].name);
-          newVariant.attributes.values.push({
-            name: newVar,
-            optionName: optionName
+        allOptions.forEach(function (o) {
+          if (o.name == optionName) return;
+          
+          o.values.forEach(function (optionValue) {
+            var newVariant = createVariant(optionValue, o.name);
+            newVariant.attributes.values.push({
+              name: newVar,
+              optionName: optionName
+            })
+            newVariantRound.push(newVariant);
           })
-          newVariantRound.push(newVariant);
         })
 
         variants = variants.concat(newVariantRound);
